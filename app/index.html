@@ -50,8 +50,8 @@
 	</header>
 	<section class="offer">
 		<div class="container">
-			<div class="d-flex">
-				<div class="offer__left">
+			<div class="row no-gutters">
+				<div class="col-xl-4 offer__left">
 					<form class="offer__form d-flex flex-column">
 						<div class="offer__form-ttl mb-4">Нет времени<br> разбираться</div>
 						<div class="offer__form-subttl mb-4">Оставьте заявку и мы перезвоним вам</div>
@@ -64,7 +64,7 @@
 						<h3 class="serv__ttl section__ttl">Наши сервисы</h3>
 					</div>
 				</div>
-				<div class="offer__slider owl-carousel">
+				<div class="col-xl-8 offer__slider owl-carousel">
 					<div class="offer__slider-item">
 						<div class="offer__slider-bg" style="background-image: url(img/slider__item-bg_1.jpg)"></div>
 						<div class="offer__slider-info">
@@ -93,9 +93,9 @@
 			</div>
 		</div>
 	</section>
-	<section class="serv">
+	<section class="serv mb-4">
 		<div class="container">
-			<div class="tabs row">
+			<div class="tabs row no-gutters">
 				<ul class="tabs__list col-xl-4">
 					<li class="serv__btn active">
 						<div class="serv__btn-subttl">Корпоративным клиентам</div>
@@ -182,6 +182,33 @@
 								</div>
 							</div>
 						</div>
+						<div class="serv__item">
+							<div class="row">
+								<div class="col-xl-8">
+									<div class="d-flex flex-column">
+										<div class="serv__item-ttl">Авто под полную загрузку для перевозок по Москве и области</div>
+										<p>Мы предоставляем под индивидуальную загрузку автомобили грузоподъемностью от .... до ... тонн.</p>
+										<div class="serv__item-ttl">Мы предоставляем:</div>
+										<ul class="list_gal">
+											<li>1-3 авто 1,5-5 т</li>
+											<li>кросс-докинг</li>
+											<li>аренда склада</li>
+										</ul>
+									</div>
+								</div>
+								<div class="col-xl-4">
+									<div class="d-flex flex-column">
+										<div class="serv__item-img-wrp">
+											<div class="serv__item-img-price">
+												<span>от 6 400 ₽</span>
+											</div>
+											<div class="serv__item-img" style="background-image: url(img/serv__item-img_1.jpg)"></div>
+										</div>
+										<a href="#" class="btn mt-3">Подробнее</a>
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
 					<!--tab-->
 					<div class="tabs__content-item">
@@ -192,8 +219,39 @@
 	</section>
 	<section class="dir">
 		<div class="container">
-			<h3 class="section__ttl">Наши направления</h3>
-			карта
+			<div class="row no-gutters">
+				<div class="col-xl-8 dir__map section_inner">
+					<h3 class="section__ttl">Наши направления</h3>
+					<div class="dir__map-in" style="background-image: url(img/dir__map.png)"></div>
+				</div>
+				<div class="col-xl-4">
+					<div class="dir__col">
+						<div class="dir__in d-flex flex-column">
+							<div class="dir__item">
+								<div class="dir__item-ttl">Москва-Самара<br> авто 1,5-20т</div>
+								<div class="dir__item-descr">от 6 400 ₽</div>
+								<a href="#popup_call" data-fancybox class="btn mt-4">Подробнее</a>
+							</div>
+							<div class="dir__item">
+								<div class="dir__item-ttl">Москва-Самара<br> авто 1,5-20т</div>
+								<div class="dir__item-descr">от 6 400 ₽</div>
+								<a href="#popup_call" data-fancybox class="btn mt-4">Подробнее</a>
+							</div>
+							<div class="dir__item">
+								<div class="dir__item-ttl">Москва-Самара<br> авто 1,5-20т</div>
+								<div class="dir__item-descr">от 6 400 ₽</div>
+								<a href="#popup_call" data-fancybox class="btn mt-4">Подробнее</a>
+							</div>
+							<div class="dir__item">
+								<div class="dir__item-ttl">Москва-Самара<br> авто 1,5-20т</div>
+								<div class="dir__item-descr">от 6 400 ₽</div>
+								<a href="#popup_call" data-fancybox class="btn mt-4">Подробнее</a>
+							</div>
+						</div>
+							
+					</div>
+				</div>
+			</div>
 		</div>
 	</section>
 	<section class="test section_inner">
@@ -556,6 +614,7 @@
 					<a href="img/rec__img_4.jpg" data-fancybox="rec" class="rec__item" style="background-image: url(img/rec__img_4.jpg)"></a>
 				</div>
 			</div>
+			<a href="#" class="show-more"><span>Показать все</span> <span>&#8595;</span></a>
 		</div>
 	</section>
 	<section class="org section_inner">
@@ -584,55 +643,84 @@
 	<footer class="footer section_inner">
 		<div class="container">
 			<div class="row mb-4">
-				<div class="col-xl-3">
+				<div class="col-xl-3 mb-3">
 					<div class="d-flex flex-column">
-						<div class="mb-3">Наш телефон: 8 (800) 000-00-00</div>
+						<div class="mb-3 d-flex flex-column">
+							<p class="mb-1">Наш телефон:</p>
+							<a href="tel:88000000000" class="footer__ttl">8 (800) 000-00-00</a>
+						</div>
 						<div class="mb-3">Режим работы: пн-вс 9:00-22:00</div>
-						<div class="mb-3">Пишите сюда: mail@centurion.ru</div>
-						<a href="#popup_call" class="btn btn_blue mb-3">Заказать звонок</a>
+						<div class="mb-5">Пишите сюда: mail@centurion.ru</div>
+						<a href="#popup_call" class="btn btn_white mb-3">Заказать звонок</a>
 						<a href="#popup_call" class="btn">Онлайн заявка</a>
 					</div>
 				</div>
-				<div class="col-xl-3">
+				<div class="col-xl-3 mb-3">
 					<div class="d-flex flex-column">
-						<div class="mb-3">Услуги</div>
-						<div class="mb-3">Перевозка грузов по Москве</div>
-						<div class="mb-3">Переезды</div>
-						<div class="mb-3">Аренда склада</div>
-						<div class="mb-3">Перевозка крупногабаритов</div>
-						<div class="mb-3">Услуги грузчиков</div>
-						<div class="mb-3">Экспедирование</div>
-						<div class="mb-3">Контакты</div>
+						<a href="#" class="mb-3 footer__ttl">Услуги</a>
+						<a href="#" class="mb-2">Перевозка грузов по Москве</a>
+						<a href="#" class="mb-2">Переезды</a>
+						<a href="#" class="mb-2">Аренда склада</a>
+						<a href="#" class="mb-2">Перевозка крупногабаритов</a>
+						<a href="#" class="mb-2">Услуги грузчиков</a>
+						<a href="#" class="mb-5">Экспедирование</a>
+						<a href="#" class="footer__ttl">Контакты</a>
 					</div>
 				</div>
-				<div class="col-xl-3">
+				<div class="col-xl-2 mb-3">
 					<div class="d-flex flex-column">
-						<div class="mb-3">Компания</div>
-						<div class="mb-3">О нас</div>
-						<div class="mb-3">Автопарк</div>
-						<div class="mb-3">Отзывы</div>
-						<div class="mb-3">Вакансии</div>
-						<div class="mb-3">Новости</div>
+						<div class="mb-3 footer__ttl">Компания</div>
+						<div class="mb-2">О нас</div>
+						<div class="mb-2">Автопарк</div>
+						<div class="mb-2">Отзывы</div>
+						<div class="mb-2">Вакансии</div>
+						<div class="mb-2">Новости</div>
 					</div>
 				</div>
-				<div class="col-xl-3">
+				<div class="col-xl-4 mb-3">
 					<div class="d-flex flex-column">
-						<div class="mb-3">Документы для скачивания</div>
-						<div class="mb-3">Прайс-лист</div>
-						<div class="mb-3">Пример договора</div>
-						<div class="mb-3">Реквизиты компании</div>
+						<div class="mb-3 footer__ttl">Документы для скачивания</div>
+						<div class="mb-2">Прайс-лист</div>
+						<div class="mb-2">Пример договора</div>
+						<div class="mb-2">Реквизиты компании</div>
 					</div>
 				</div>
 			</div>
-			<div class="row">
+			<div class="row mt-3 align-items-end">
 				<div class="col-xl-4">
-					Наш адрес: г. Москва, ул. Пушкина, дом 34, офис 543
+					<div class="d-flex flex-column">
+						<p>Наш адрес:</p>
+						<div class="footer__subttl">г. Москва, ул. Пушкина, дом 34, офис 543</div>
+					</div>
 				</div>
-				<div class="col-xl-3">
-					Связаться с нами:
+				<div class="col-xl-4">
+					<div class="d-flex flex-column">
+						<p>Связаться с нами:</p>
+						<div class="d-flex">
+								<a href="#" class="soc__item">
+									<div class="soc__item-img" style="background-image: url(img/soc__img_1.png)"></div>
+								</a>
+								<a href="#" class="soc__item">
+									<div class="soc__item-img" style="background-image: url(img/soc__img_2.png)"></div>
+								</a>
+								<a href="#" class="soc__item">
+									<div class="soc__item-img" style="background-image: url(img/soc__img_3.png)"></div>
+								</a>
+								<a href="#" class="soc__item">
+									<div class="soc__item-img" style="background-image: url(img/soc__img_4.png)"></div>
+								</a>
+								<a href="#" class="soc__item">
+									<div class="soc__item-img" style="background-image: url(img/soc__img_5.png)"></div>
+								</a>
+								<a href="#" class="soc__item">
+									<div class="soc__item-img" style="background-image: url(img/soc__img_6.png)"></div>
+								</a>
+						</div>
+					</div>
+					
 				</div>
-				<div class="col-xl-5">
-					© 2019 Официальный сайт компании Центурион
+				<div class="col-xl-4">
+					<span class="footer__copy">© 2019 Официальный сайт компании Центурион</span>
 				</div>
 			</div>
 		</div>

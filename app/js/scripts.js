@@ -1,8 +1,10 @@
 $(function() {
   $('.offer__slider').owlCarousel({
       nav: true,
+      center: true,
+      smartSpeed: 800,
       items: 1,
-      loop: false,
+      loop: true,
       dots: true,
       navText: ["<img src='img/slider__arrow_prev.png'>", "<img src='img/slider__arrow_next.png'>"]
 	});

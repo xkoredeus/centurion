@@ -321,6 +321,9 @@ button:active
 			color: #000
 .offer
 	overflow: hidden
+	&__left
+		position: relative
+		z-index: 2
 	&__form
 		max-width: 370px
 		color: #fff
@@ -356,6 +359,22 @@ button:active
 		textarea:active
 			border-bottom: 1px solid #F26721
 	&__slider
+		.owl-stage-outer
+			overflow: visible
+		.owl-item.center
+			z-index: 2
+		.owl-nav button.owl-next
+			top: 90px
+			bottom: auto
+		.owl-nav button.owl-prev
+			left: auto
+			right: 0
+			top: 30px
+			bottom: auto
+		.owl-dots
+			bottom: 60px
+			left: 50px
+			justify-content: flex-start
 		.owl-stage-outer,
 		.owl-stage,
 		.owl-item
@@ -366,7 +385,7 @@ button:active
 			&::before
 				content: ''
 				position: absolute
-				width: 100%
+				width: 180%
 				height: 100%
 				left: 0
 				top: 0
@@ -377,7 +396,7 @@ button:active
 			position: absolute
 			left: 0
 			top: 0
-			width: 100%
+			width: 180%
 			height: 100%
 			background-position: 50% 50%
 			background-repeat: no-repeat
@@ -393,11 +412,18 @@ button:active
 			.section__ttl
 				color: #fff
 
-
-
 .serv
 	.tabs__content-item
 		padding: 30px
+	.tabs
+		align-items: flex-start
+		&__list
+			margin: 0
+			li
+				height: 33.333%
+	.tabs__container
+		max-height: 631px
+		overflow-y: scroll
 	&__ttl
 		color: #fff
 		margin-bottom: 0
@@ -419,7 +445,7 @@ button:active
 	&__btn
 		display: flex
 		flex-direction: column
-		padding: 35px
+		padding: 30px
 		padding-left: 0
 		padding-right: 0
 		background-color: #ECECEC
@@ -432,6 +458,7 @@ button:active
 			width: 300%
 			height: 100%
 			background-color: #ECECEC
+			border: 1px solid #fff
 		& *
 			position: relative
 		&:hover
@@ -454,8 +481,8 @@ button:active
 			&_yellow
 				opacity: 0
 			&-wrp
-				width: 126px
-				height: 80px
+				width: 100px
+				height: 60px
 				background-position: 50% 50%
 				background-repeat: no-repeat
 				background-size: contain
@@ -519,6 +546,62 @@ button:active
 					background-color: #181818
 					opacity: .8
 					border-radius: 6px
+
+.dir
+	overflow: hidden
+	background-color: #ececec
+	&__map
+		position: relative
+		&-in
+			position: absolute
+			right: 0
+			top: 0
+			width: 1930px
+			max-width: 130%
+			height: 733px
+			background-position: 50% 50%
+			background-repeat: no-repeat
+			background-size: contain
+	&__col
+		padding-top: 30px
+		padding-bottom: 30px
+		position: relative
+		&::before
+			content: ''
+			position: absolute
+			width: 300%
+			height: 100%
+			left: 0
+			top: 0
+			background: url('../img/dir__bg.jpg') no-repeat 50% 50% / cover
+		&::after
+			content: ''
+			position: absolute
+			width: 300%
+			height: 100%
+			left: 0
+			top: 0
+			background-color: #181818
+			opacity: .8
+	&__in
+		position: relative
+		z-index: 1
+		max-height: 637px
+		overflow-y: scroll
+	&__item
+		padding: 30px
+		padding-left: 0
+		margin-left: 30px
+		margin-right: 25px
+		color: #fff
+		font-family: 'Montserrat-Bold'
+		border-bottom: 1px solid #fff
+		&-ttl
+			font-size: 18px
+			margin-bottom: 10px
+		&-descr
+			font-size: 18px
+
 
 .test
 	&__item
@@ -808,7 +891,7 @@ button:active
 		&:hover
 			justify-content: space-between
 			.park__item-info::before
-				opacity: .7
+				opacity: .9
 			.park__item-descr,
 			.park__item-char
 				opacity: 1
@@ -898,3 +981,51 @@ button:active
 .footer
 	background-color: #181818
 	color: #fff
+	a:not(.btn_white)
+		color: #fff
+		&:hover
+			color: #F26721
+	&__ttl
+		font-family: 'Montserrat-Black'
+		font-size: 18px
+	&__subttl
+		font-family: 'Montserrat-Medium'
+		font-size: 16px
+	.soc
+		&__item
+			display: flex
+			justify-content: center
+			align-items: center
+			width: 30px
+			height: 30px
+			border: 1px solid #fff
+			position: relative
+			overflow: hidden
+			&::before
+				content: ''
+				position: absolute
+				width: 100%
+				height: 100%
+				left: 0
+				right: 0
+				bottom: -15px
+				background-color: #F26721
+				opacity: 0
+			&:not(:last-child)
+				margin-right: 15px
+			&-img
+				position: relative
+				width: 70%
+				height: 70%
+				background-position: 50% 50%
+				background-repeat: no-repeat
+				background-size: contain
+			&:hover
+				transform: translateY(-3px)
+				border-color: #F26721
+				&::before
+					bottom: 0
+					opacity: 1
+	&__copy
+		font-size: 13px
+		text-align: right
