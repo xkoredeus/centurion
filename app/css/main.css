@@ -235,8 +235,8 @@ button:active .shd:hover {
 }
 
 .popup__container .fancybox-close-small {
-  top: 40px;
-  right: 40px;
+  top: 28px;
+  right: 28px;
   color: #000;
 }
 
@@ -363,7 +363,7 @@ button:active .shd:hover {
 
 .popup__container .popup_call__wrp .popup__policy a {
   font-size: 12px;
-  color: #00BFF3;
+  color: #F26721;
 }
 
 .owl-carousel .owl-dots {
@@ -677,7 +677,8 @@ button:active .shd:hover {
 }
 
 .serv .tabs__content-item {
-  padding: 30px;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
 .serv .tabs {
@@ -696,8 +697,26 @@ button:active .shd:hover {
 }
 
 .serv .tabs__container {
-  max-height: 631px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  max-height: 600px;
   overflow-y: scroll;
+}
+
+.serv .tabs__container::-webkit-scrollbar-track {
+  background-color: #dbdbdb;
+}
+
+.serv .tabs__container::-webkit-scrollbar {
+  width: 5px;
+  background-color: #F5F5F5;
+}
+
+.serv .tabs__container::-webkit-scrollbar-thumb {
+  width: 10px;
+  background-color: #fff;
+  border: 2px solid #F26721;
+  border-radius: 6px;
 }
 
 .serv__ttl {
@@ -939,6 +958,22 @@ button:active .shd:hover {
   overflow-y: scroll;
 }
 
+.dir__in::-webkit-scrollbar-track {
+  background-color: #dbdbdb;
+}
+
+.dir__in::-webkit-scrollbar {
+  width: 5px;
+  background-color: #F5F5F5;
+}
+
+.dir__in::-webkit-scrollbar-thumb {
+  width: 10px;
+  background-color: #fff;
+  border: 2px solid #F26721;
+  border-radius: 6px;
+}
+
 .dir__item {
   padding: 30px;
   padding-left: 0;
@@ -947,6 +982,24 @@ button:active .shd:hover {
   color: #fff;
   font-family: 'Montserrat-Bold';
   border-bottom: 1px solid #fff;
+  position: relative;
+}
+
+.dir__item::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: -30px;
+  top: 0;
+  background: -webkit-gradient(linear, left top, right top, color-stop(-69.16%, #F26721), color-stop(49.01%, rgba(242, 103, 33, 0)));
+  background: -o-linear-gradient(left, #F26721 -69.16%, rgba(242, 103, 33, 0) 49.01%);
+  background: linear-gradient(90deg, #F26721 -69.16%, rgba(242, 103, 33, 0) 49.01%);
+  opacity: 0;
+}
+
+.dir__item > * {
+  position: relative;
 }
 
 .dir__item-ttl {
@@ -956,6 +1009,10 @@ button:active .shd:hover {
 
 .dir__item-descr {
   font-size: 18px;
+}
+
+.dir__item:hover::before {
+  opacity: 1;
 }
 
 .test__item {
@@ -1470,6 +1527,10 @@ button:active .shd:hover {
   background-size: cover;
   overflow: hidden;
   position: relative;
+}
+
+.rec__item-wrp {
+  margin-bottom: 15px;
 }
 
 .rec__item::before {

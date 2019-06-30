@@ -137,8 +137,8 @@ button:active
 	padding: 40px
 	background-color: transparent
 	.fancybox-close-small
-		top: 40px
-		right: 40px
+		top: 28px
+		right: 28px
 		color: #000
 	.popup__wrp
 		display: -webkit-flex
@@ -212,7 +212,7 @@ button:active
 				font-size: 12px
 				a
 					font-size: 12px 
-					color: #00BFF3
+					color: #F26721
 .owl-carousel
 	.owl-dots
 		position: absolute
@@ -414,7 +414,8 @@ button:active
 
 .serv
 	.tabs__content-item
-		padding: 30px
+		padding-left: 30px
+		padding-right: 30px
 	.tabs
 		align-items: flex-start
 		&__list
@@ -422,8 +423,21 @@ button:active
 			li
 				height: 33.333%
 	.tabs__container
-		max-height: 631px
+		margin-top: 30px
+		margin-bottom: 30px
+		max-height: 600px
 		overflow-y: scroll
+		&::-webkit-scrollbar-track
+			// -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3)
+			background-color: #dbdbdb
+		&::-webkit-scrollbar
+			width: 5px
+			background-color: #F5F5F5
+		&::-webkit-scrollbar-thumb
+			width: 10px
+			background-color: #fff
+			border: 2px solid #F26721
+			border-radius: 6px
 	&__ttl
 		color: #fff
 		margin-bottom: 0
@@ -562,6 +576,7 @@ button:active
 			background-position: 50% 50%
 			background-repeat: no-repeat
 			background-size: contain
+
 	&__col
 		padding-top: 30px
 		padding-bottom: 30px
@@ -588,6 +603,17 @@ button:active
 		z-index: 1
 		max-height: 637px
 		overflow-y: scroll
+		&::-webkit-scrollbar-track
+			// -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3)
+			background-color: #dbdbdb
+		&::-webkit-scrollbar
+			width: 5px
+			background-color: #F5F5F5
+		&::-webkit-scrollbar-thumb
+			width: 10px
+			background-color: #fff
+			border: 2px solid #F26721
+			border-radius: 6px
 	&__item
 		padding: 30px
 		padding-left: 0
@@ -596,11 +622,26 @@ button:active
 		color: #fff
 		font-family: 'Montserrat-Bold'
 		border-bottom: 1px solid #fff
+		position: relative
+		&::before
+			content: ''
+			position: absolute
+			width: 100%
+			height: 100%
+			left: -30px
+			top: 0
+			background: linear-gradient(90deg, #F26721 -69.16%, rgba(242, 103, 33, 0) 49.01%)
+			opacity: 0
+		& >*
+			position: relative
 		&-ttl
 			font-size: 18px
 			margin-bottom: 10px
 		&-descr
 			font-size: 18px
+		&:hover
+			&::before
+				opacity: 1
 
 
 .test
@@ -944,6 +985,8 @@ button:active
 		background-size: cover
 		overflow: hidden
 		position: relative
+		&-wrp
+			margin-bottom: 15px
 		&::before
 			content: ''
 			position: absolute

@@ -8,35 +8,11 @@ $(function() {
       dots: true,
       navText: ["<img src='img/slider__arrow_prev.png'>", "<img src='img/slider__arrow_next.png'>"]
 	});
-  // $('.main-slider__cnt').owlCarousel({
-  //     nav: true,
-  //     items: 1,
-  //     loop: false,
-  //     dots: true,
-  //     navText: ["<img src='img/slider__arrow_prev.png'>", "<img src='img/slider__arrow_next.png'>"],
-  //     responsive : {
-  //       0   : {
-  //           items: 1
-  //       },
-  //       380 : {
-  //           items: 1
-  //       },
-  //       480 : {
-  //           items: 1
-  //       },
-  //       768 : {
-  //           items: 3
-  //       },
-  //       1040 : {
-  //           items: 4
-  //       }
-  //     }
-  // });
 
   //jur slider
   var sync1 = $('.jur__top'),
         sync2 = $('.jur__bot'),
-        duration = 300,
+        duration = 500,
         thumbs = 4;
 
     // Sync nav
@@ -50,13 +26,12 @@ $(function() {
     // Start Carousel
     sync1.owlCarousel({
         // rtl: true,
-        // center: true,
+        center: true,
         nav: true,
         loop: true,
         dots: false,
         items: thumbs,
         margin: 0,
-        center: false,
         smartSpeed: 700,
         animateIn: 'fadeIn',
         animateOut: 'fadeOut',
@@ -68,15 +43,15 @@ $(function() {
         navText: ["<img src='img/slider__arrow_prev.png'>", "<img src='img/slider__arrow_next.png'>"]
     }).on('click', '.owl-item', function () {
         var i = $(this).index() - (thumbs + 1);
+        var a = $(this).index() - (thumbs - 1);
 
         sync2.trigger('to.owl.carousel', [i, duration, true]);
         sync1.trigger('to.owl.carousel', [i, duration, true]);
-        $(this).addClass('center');
+        // $(a).addClass('center');
     });
 
-
     sync2.owlCarousel({
-        
+        center: true,
         loop: true,
         items: 1,
         margin: 2,
@@ -123,6 +98,26 @@ $(function() {
         thisLi.parent().next().children('div').hide().eq(numLi).fadeIn('slow');
       }
     });
+  });
+  //нам доверяют
+  $('.part__item-wrp').slice(8).hide();
+  $('.show-more_part').on('click', function(e){
+    e.preventDefault();
+    $('.part__item-wrp').slice(8).slideToggle();
+    $('html, body').animate({
+        scrollTop: $(window).scrollTop() + 150
+    });
+    $(this).hide();
+  });
+  //рекомендуют
+  $('.rec__item-wrp').slice(4).hide();
+  $('.show-more_rec').on('click', function(e){
+    e.preventDefault();
+    $('.rec__item-wrp').slice(4).slideToggle();
+    $('html, body').animate({
+        scrollTop: $(window).scrollTop() + 150
+    });
+    $(this).hide();
   });
   //Закрываем AjaxForm popup после успешной отправки
   // $(document).on('af_complete', function(event,res) {
