@@ -504,6 +504,7 @@ button:active .shd:hover {
 
 .header {
   padding: 20px 0;
+  position: relative;
 }
 
 .header__info-ttl {
@@ -522,8 +523,71 @@ button:active .shd:hover {
   font-family: 'Montserrat-ExtraBold';
 }
 
+.header__nav .header__logo,
+.header__nav .header__info-item {
+  display: none;
+}
+
 .header__nav-link {
   color: #000;
+}
+
+.header__hamburger {
+  position: absolute;
+  top: 55px;
+  right: 23px;
+  width: 32px;
+  height: 2px;
+  background-color: #F26721;
+  opacity: 1;
+  z-index: 2;
+  -webkit-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+.header__hamburger::before, .header__hamburger::after {
+  content: '';
+  position: absolute;
+  width: 32px;
+  height: 2px;
+  background-color: #F26721;
+  left: 0;
+}
+
+.header__hamburger::before {
+  top: -14px;
+}
+
+.header__hamburger::after {
+  bottom: -14px;
+}
+
+.header__hamburger.active {
+  background-color: transparent;
+  z-index: 6;
+  top: 29px;
+  right: 23px;
+  width: 32px;
+  height: 40px;
+}
+
+.header__hamburger.active::before {
+  width: 39px;
+  top: 24px;
+  -webkit-transform: rotate(315deg);
+      -ms-transform: rotate(315deg);
+          transform: rotate(315deg);
+  background-color: #F26721;
+}
+
+.header__hamburger.active::after {
+  width: 39px;
+  bottom: 14px;
+  -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
+  background-color: #F26721;
 }
 
 .offer {
@@ -1223,6 +1287,8 @@ button:active .shd:hover {
   color: #fff;
   width: 100%;
   max-width: 292px;
+  margin-left: auto;
+  margin-right: auto;
   height: 240px;
   display: -webkit-box;
   display: -webkit-flex;
@@ -1380,6 +1446,9 @@ button:active .shd:hover {
   margin-bottom: 15px;
   font-family: 'Montserrat-Bold';
   position: relative;
+  max-width: 270px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .about__item-num {
@@ -1439,6 +1508,8 @@ button:active .shd:hover {
 
 .park__item {
   max-width: 570px;
+  margin-left: auto;
+  margin-right: auto;
   position: relative;
 }
 
@@ -1534,6 +1605,8 @@ button:active .shd:hover {
 .part__item {
   width: 100%;
   max-width: 270px;
+  margin-left: auto;
+  margin-right: auto;
   height: 120px;
   border: 1px solid #fff;
   margin-bottom: 15px;
@@ -1587,6 +1660,9 @@ button:active .shd:hover {
   display: block;
   width: 100%;
   max-width: 270px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
   height: 382px;
   background-position: 50% 50%;
   background-repeat: no-repeat;

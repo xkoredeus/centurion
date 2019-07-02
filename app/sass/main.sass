@@ -305,6 +305,7 @@ button:active
 		transition: unset
 .header
 	padding: 20px 0
+	position: relative
 	&__info
 		&-ttl
 			font-size: 13px
@@ -317,8 +318,50 @@ button:active
 				font-size: 18px
 				font-family: 'Montserrat-ExtraBold'
 	&__nav
+		.header__logo,
+		.header__info-item
+			display: none
 		&-link
 			color: #000
+	&__hamburger
+		position: absolute
+		top: 55px
+		right: 23px
+		width: 32px
+		height: 2px
+		background-color: #F26721
+		opacity: 1
+		z-index: 2
+		transition: all 0.5s ease
+		&::before,
+		&::after
+			content: ''
+			position: absolute
+			width: 32px
+			height: 2px
+			background-color: #F26721
+			left: 0
+		&::before
+			top: -14px
+		&::after
+			bottom: -14px
+		&.active
+			background-color: transparent
+			z-index: 6
+			top: 29px
+			right: 23px
+			width: 32px
+			height: 40px
+			&::before
+				width: 39px
+				top: 24px
+				transform: rotate(315deg)
+				background-color: #F26721
+			&::after
+				width: 39px
+				bottom: 14px
+				transform: rotate(45deg)
+				background-color: #F26721
 .offer
 	overflow: hidden
 	&__left
@@ -791,6 +834,8 @@ button:active
 			color: #fff
 			width: 100%
 			max-width: 292px
+			margin-left: auto
+			margin-right: auto
 			height: 240px
 			display: flex
 			flex-direction: column
@@ -893,6 +938,9 @@ button:active
 		margin-bottom: 15px
 		font-family: 'Montserrat-Bold'
 		position: relative
+		max-width: 270px
+		margin-left: auto
+		margin-right: auto
 		&-num
 			font-size: 132px
 			line-height: 1
@@ -931,6 +979,8 @@ button:active
 			overflow: visible
 	&__item
 		max-width: 570px
+		margin-left: auto
+		margin-right: auto
 		position: relative
 		&-img
 			position: absolute
@@ -989,6 +1039,8 @@ button:active
 	&__item
 		width: 100%
 		max-width: 270px
+		margin-left: auto
+		margin-right: auto
 		height: 120px
 		border: 1px solid #fff
 		margin-bottom: 15px
@@ -1024,6 +1076,9 @@ button:active
 		display: block
 		width: 100%
 		max-width: 270px
+		margin-left: auto
+		margin-right: auto
+		margin-bottom: 20px
 		height: 382px
 		background-position: 50% 50%
 		background-repeat: no-repeat

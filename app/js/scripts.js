@@ -73,6 +73,25 @@ $(function() {
     nav: true,
     navText: ["<img src='img/slider__arrow_prev.png'>", "<img src='img/slider__arrow_next.png'>"],
     dots: false,
+    responsive : {
+      0   : {
+          items: 1,
+          autoHeight: true
+      },
+      380 : {
+          items: 1,
+      },
+      480 : {
+          items: 1,
+      },
+      768 : {
+          items: 3,
+      },
+      1040 : {
+          items: 5,
+          autoHeight: false
+      }
+    },
     onInitialized: function (e) {
       var thumbnailCurrentItem =  $(e.target).find(thumbnailItemClass).eq(this._current);
       thumbnailCurrentItem.addClass('synced');
@@ -128,7 +147,24 @@ $(function() {
       loop: true,
       smartSpeed: 700,
       dots: false,
-      navText: ["<img src='img/slider__arrow_prev.png'>", "<img src='img/slider__arrow_next.png'>"]
+      navText: ["<img src='img/slider__arrow_prev.png'>", "<img src='img/slider__arrow_next.png'>"],
+      responsive : {
+        0   : {
+            items: 1
+        },
+        380 : {
+            items: 1
+        },
+        480 : {
+            items: 1
+        },
+        768 : {
+            items: 1
+        },
+        1040 : {
+            items: 2
+        }
+      }
    });
 	// tabs 
   $(document).ready(function () {
@@ -162,6 +198,21 @@ $(function() {
         scrollTop: $(window).scrollTop() + 150
     });
     $(this).hide();
+  });
+
+  //Скролл на табах
+  if ( $(window).width() < 1199 ) {
+    $('.serv__btn').on('click', function(){
+      $('html, body').animate({
+          scrollTop: $("#serv__content").offset().top - 50
+      }, 700);
+    });
+  };
+  //mobile menu
+  $(".header__hamburger").on('click',function() {
+      $(this).toggleClass("active");
+      $('.header__nav').toggleClass("active");
+      $('body').toggleClass("fixed");
   });
   //Закрываем AjaxForm popup после успешной отправки
   // $(document).on('af_complete', function(event,res) {
