@@ -742,6 +742,13 @@ button:active
 		position: relative
 		.owl-stage-outer
 			overflow: visible
+		.owl-nav
+			button
+				&.owl-prev
+					left: -25px
+				&.owl-next
+					right: -25px
+
 		&-item
 			color: #fff
 			width: 100%
@@ -795,7 +802,7 @@ button:active
 				color: #fff
 				&::before
 					background-color: #F26721
-		.owl-item.center
+		.owl-item.synced
 			.jur__top-item
 				&::after
 					opacity: 1
@@ -1072,3 +1079,4 @@ button:active
 	&__copy
 		font-size: 13px
 		text-align: right
+

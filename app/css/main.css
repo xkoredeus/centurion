@@ -1153,6 +1153,14 @@ button:active .shd:hover {
   overflow: visible;
 }
 
+.jur__top .owl-nav button.owl-prev {
+  left: -25px;
+}
+
+.jur__top .owl-nav button.owl-next {
+  right: -25px;
+}
+
 .jur__top-item {
   color: #fff;
   width: 100%;
@@ -1239,14 +1247,14 @@ button:active .shd:hover {
   background-color: #F26721;
 }
 
-.jur__top .owl-item.center .jur__top-item::after {
+.jur__top .owl-item.synced .jur__top-item::after {
   opacity: 1;
   -webkit-transform: rotate(45deg) translateY(0px);
       -ms-transform: rotate(45deg) translateY(0px);
           transform: rotate(45deg) translateY(0px);
 }
 
-.jur__top .owl-item.center .jur__top-item::before {
+.jur__top .owl-item.synced .jur__top-item::before {
   background-color: #F26721;
 }
 

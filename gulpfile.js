@@ -92,7 +92,7 @@ gulp.task('clear', function (callback) {
 gulp.task('watch', ['browser-sync', 'css-libs', 'scripts'], function() {
 	gulp.watch('app/sass/**/*.sass', ['sass']); // Наблюдение за sass файлами в папке sass
 	gulp.watch('app/*.html', browserSync.reload); // Наблюдение за HTML файлами в корне проекта
-	gulp.watch(['app/js/common.js', 'app/libs/**/*.js'], browserSync.reload);   // Наблюдение за JS файлами в папке js
+	gulp.watch(['app/js/scripts.js', 'app/libs/**/*.js'], browserSync.reload);   // Наблюдение за JS файлами в папке js
 });
 
 gulp.task('default', ['watch']);
