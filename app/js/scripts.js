@@ -179,34 +179,100 @@ $(function() {
       }
     });
   });
-  //нам доверяют
-  $('.part__item-wrp').slice(8).hide();
-  $('.show-more_part').on('click', function(e){
-    e.preventDefault();
-    $('.part__item-wrp').slice(8).slideToggle();
-    $('html, body').animate({
-        scrollTop: $(window).scrollTop() + 150
+  if ( $(window).width() > 1200 ) {
+    //нам доверяют
+    $('.part__item-wrp').slice(8).hide();
+    $('.show-more_part').on('click', function(e){
+      e.preventDefault();
+      $('.part__item-wrp').slice(8).slideToggle();
+      $('html, body').animate({
+          scrollTop: $(window).scrollTop() + 150
+      });
+      $(this).hide();
     });
-    $(this).hide();
-  });
-  //рекомендуют
-  $('.rec__item-wrp').slice(4).hide();
-  $('.show-more_rec').on('click', function(e){
-    e.preventDefault();
-    $('.rec__item-wrp').slice(4).slideToggle();
-    $('html, body').animate({
-        scrollTop: $(window).scrollTop() + 150
+    //рекомендуют
+    $('.rec__item-wrp').slice(4).hide();
+    $('.show-more_rec').on('click', function(e){
+      e.preventDefault();
+      $('.rec__item-wrp').slice(4).slideToggle();
+      $('html, body').animate({
+          scrollTop: $(window).scrollTop() + 150
+      });
+      $(this).hide();
     });
-    $(this).hide();
-  });
-
-  //Скролл на табах
+  };
   if ( $(window).width() < 1199 ) {
+   //Скролл на табах
     $('.serv__btn').on('click', function(){
       $('html, body').animate({
           scrollTop: $("#serv__content").offset().top - 50
       }, 700);
     });
+    $('.serv .tabs__content-item').addClass('owl-carousel').trigger( 'click');
+    $('.serv .tabs__content-item').owlCarousel({
+      nav: true,
+      items: 1,
+      loop: true,
+      smartSpeed: 700,
+      dots: false,
+      navText: ["<img src='img/slider__arrow_prev.png'>", "<img src='img/slider__arrow_next.png'>"]
+   });
+    $(".serv .tabs__content-item:not(:first-child)").hide();
+    $('.part__in').addClass('owl-carousel');
+    $('.part__in').removeClass('row');
+    $('.part__in').owlCarousel({
+      nav: true,
+      // items: 2,
+      loop: true,
+      smartSpeed: 700,
+      dots: false,
+      navText: ["<img src='img/slider__arrow_prev.png'>", "<img src='img/slider__arrow_next.png'>"],
+      responsive : {
+        0   : {
+            items: 1
+        },
+        380 : {
+            items: 1
+        },
+        480 : {
+            items: 1
+        },
+        768 : {
+            items: 2
+        },
+        1040 : {
+            items: 3
+        }
+      }
+   });
+
+    $('.rec__in').addClass('owl-carousel');
+    $('.rec__in').removeClass('row');
+    $('.rec__in').owlCarousel({
+      nav: true,
+      // items: 2,
+      loop: true,
+      smartSpeed: 700,
+      dots: false,
+      navText: ["<img src='img/slider__arrow_prev.png'>", "<img src='img/slider__arrow_next.png'>"],
+      responsive : {
+        0   : {
+            items: 1
+        },
+        380 : {
+            items: 1
+        },
+        480 : {
+            items: 1
+        },
+        768 : {
+            items: 2
+        },
+        1040 : {
+            items: 3
+        }
+      }
+   });
   };
   //mobile menu
   $(".header__hamburger").on('click',function() {

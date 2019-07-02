@@ -523,6 +523,11 @@ button:active .shd:hover {
   font-family: 'Montserrat-ExtraBold';
 }
 
+.header .btn_white {
+  -webkit-box-shadow: 0px 2px 4px 1px rgba(0, 0, 0, 0.41);
+          box-shadow: 0px 2px 4px 1px rgba(0, 0, 0, 0.41);
+}
+
 .header__nav .header__logo,
 .header__nav .header__info-item {
   display: none;

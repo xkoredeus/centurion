@@ -4,13 +4,23 @@
 		margin-left: auto
 		margin-right: auto
 	.owl-carousel .owl-nav button.owl-prev
-		left: 0
-	.offer__slider .owl-nav button.owl-prev
-		left: auto
+		// left: 0
 		transform: scale(.7)
 	.owl-carousel .owl-nav button.owl-next
 		transform: scale(.7)
-		right: 0
+		// right: 0
+	.offer__slider .owl-nav button.owl-prev
+		left: auto
+	.serv .owl-nav button.owl-prev
+		left: -31px
+		border: 1px solid #000
+	.serv .owl-nav button.owl-next
+		right: -31px
+		border: 1px solid #000
+	.rec .owl-nav button.owl-prev
+		border: 1px solid #000
+	.rec .owl-nav button.owl-next
+		border: 1px solid #000
 	.offer__form,
 	.serv__ttl-wrp
 		max-width: unset
@@ -62,8 +72,22 @@
 		left: -100px
 	.footer .btn
 		max-width: 270px
+	.serv
+		overflow: hidden
+	.serv .tabs__content-item
+		padding-left: 0
+		padding-right: 0
 	.serv .tabs__container
+		max-height: unset
+		overflow-y: visible
 		border: 1px solid #ccc
+		padding-top: 5px
+		padding-bottom: 5px
+	.serv__item
+		padding: 0px 10px
+		border: none
+	.show-more
+		display: none
 @media screen and (max-width: 768px)
 	.section
 		&__ttl
@@ -84,15 +108,23 @@
 		padding-bottom: 15px
 	.serv__btn-subttl
 		margin-bottom: 10px
+	.offer__slider .owl-dots
+		left: 0
 @media screen and (max-width: 600px)
 	.owl-carousel .owl-nav button.owl-prev
-		left: 9px
+		// left: 9px
 	.offer__slider .owl-nav button.owl-prev
 		left: auto
 	.owl-carousel .owl-nav button.owl-next
-		right: 9px
+		// right: 9px
 	.offer__slider .owl-nav button.owl-next
 		right: 0
+	.serv .owl-nav button.owl-prev
+		left: -31px
+		border: 1px solid #000
+	.serv .owl-nav button.owl-next
+		right: -31px
+		border: 1px solid #000
 	.header__info
 		text-align: center
 	.bonus
