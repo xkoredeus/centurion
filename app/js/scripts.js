@@ -118,28 +118,49 @@ $(function() {
       // center: true,
       smartSpeed: 700,
       dots: false,
-      navText: ["<img src='img/slider__arrow_prev.png'>", "<img src='img/slider__arrow_next.png'>"]
+      navText: ["<img src='img/slider__arrow_prev.png'>", "<img src='img/slider__arrow_next.png'>"],
+      responsive : {
+        0   : {
+            items: 1,
+            autoHeight: true
+        },
+        380 : {
+            items: 1,
+        },
+        480 : {
+            items: 2,
+        },
+        768 : {
+            items: 3,
+        },
+        1040 : {
+            items: 5,
+            autoHeight: false
+        }
+      },
    });
   //dir map
-  $('.dir__mark').click(function(){
-    $(this).addClass('active').siblings().removeClass('active');
-    var i = ($(this).index());
-    $('.dir__bot').trigger('to.owl.carousel', $(this).data( 'position' ) );
-    $('.dir__bot .owl-stage .owl-item').eq($(this).index()).addClass('active-mark').siblings('.owl-item').removeClass('active-mark');
+  if ( $(window).width() > 768 ) {
+    $('.dir__mark').click(function(){
+      $(this).addClass('active').siblings().removeClass('active');
+      var i = ($(this).index());
+      $('.dir__bot').trigger('to.owl.carousel', $(this).data( 'position' ) );
+      $('.dir__bot .owl-stage .owl-item').eq($(this).index()).addClass('active-mark').siblings('.owl-item').removeClass('active-mark');
 
-    var $owl = $('.dir__bot');
-    $owl.children().each( function( i ) {
-      $(this).attr( 'data-position', i ); // NB: .attr() instead of .data()
+      var $owl = $('.dir__bot');
+      $owl.children().each( function( i ) {
+        $(this).attr( 'data-position', i ); // NB: .attr() instead of .data()
+      });
+      var carousel = $('.dir__bot').data('owl.carousel');
+
+      carousel.to(carousel.relative($(this).index()));
+
     });
-    var carousel = $('.dir__bot').data('owl.carousel');
-
-    carousel.to(carousel.relative($(this).index()));
-
-  });
-  $('.dir__bot .owl-stage .owl-item').click(function(){
-    $(this).addClass('active-mark').siblings('').removeClass('active-mark');
-    $('.dir__mark').eq($(this).index()).addClass('active').siblings().removeClass('active');
-  });
+    $('.dir__bot .owl-stage .owl-item').click(function(){
+      $(this).addClass('active-mark').siblings('').removeClass('active-mark');
+      $('.dir__mark').eq($(this).index()).addClass('active').siblings().removeClass('active');
+    });
+  };
     //park slider
     $('.park__slider').owlCarousel({
       nav: true,
@@ -280,6 +301,14 @@ $(function() {
       $('.header__nav').toggleClass("active");
       $('body').toggleClass("fixed");
   });
+  
+  if ( $(window).width() < 600 ) {
+    $('.footer__link').hide();
+    $('.footer__ttl:first-child').on('click', function(e){
+      e.preventDefault();
+      $(this).toggleClass('active').siblings('.footer__link').slideToggle();
+    });
+  };
   //Закрываем AjaxForm popup после успешной отправки
   // $(document).on('af_complete', function(event,res) {
   //   if(res.success) parent.$.fancybox.close();

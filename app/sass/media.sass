@@ -70,8 +70,8 @@
 	.offer__slider-bg,
 	.offer__slider-item::before
 		left: -100px
-	.footer .btn
-		max-width: 270px
+	// .footer .btn
+	// 	max-width: 270px
 	.serv
 		overflow: hidden
 	.serv .tabs__content-item
@@ -99,7 +99,7 @@
 	.offer__slider-item
 		.section__ttl
 			text-align: left
-	.dir
+	.dir__top
 		display: none
 	.offer__slider-info
 		padding: 70px 50px 0 0
@@ -110,6 +110,19 @@
 		margin-bottom: 10px
 	.offer__slider .owl-dots
 		left: 0
+	.about
+		&__item
+			margin-bottom: 65px
+			&-num
+				font-size: 72px
+			&-descr
+				bottom: -48px
+	.dir
+		.owl-nav
+			button.owl-prev
+				left: -15px
+			button.owl-next
+				right: -15px
 @media screen and (max-width: 600px)
 	.owl-carousel .owl-nav button.owl-prev
 		// left: 9px
@@ -134,3 +147,27 @@
 		text-align: center
 		&__copy
 			text-align: center
+		&__link
+			transition: unset
+		&__ttl
+			&:nth-child(1)
+				position: relative
+				&::after
+					content: ''
+					position: absolute
+					width: 10px
+					height: 10px
+					right: -20px
+					top: 3px
+					border-bottom: solid 5px #fff
+					border-right: solid 5px #fff
+					border-left: solid 5px transparent
+					border-top: solid 5px transparent
+					transform: rotate(45deg)
+			&.active
+				&::after
+					top: 9px
+					transform: rotate(45deg) scale(-1,-1)
+@media screen and (max-width: 400px)
+	.footer__ttl
+		font-size: 16px
