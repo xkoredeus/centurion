@@ -215,7 +215,8 @@ $(function() {
     responsive : {
       0   : {
           nav: true,
-          mouseDrag: true
+          mouseDrag: true,
+          autoHeight:true
       },
       1200 : {
           nav: false,
