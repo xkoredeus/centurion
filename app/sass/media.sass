@@ -88,6 +88,41 @@
 		border: none
 	.show-more
 		display: none
+	.about
+		&-begin
+			text-align: center
+			&__item
+				&-ttl,
+				&-descr
+					min-height: auto
+		&-sphere__item
+			background: none
+	.princ
+		&__btn
+			&::before
+				right: -70px
+		&__item
+			min-height: auto
+			padding-top: 20px
+			&::before,
+			&-bg
+				width: 100%
+			&-list
+				li
+					margin-bottom: 15px
+	.crumbs
+		padding-bottom: 5px
+		li:last-child::before
+			bottom: -1px
+		li,
+		a
+			margin-bottom: 15px
+	.rev__bot
+		display: none !important
+	.rev__top-item
+		min-height: auto
+		p
+			min-height: auto
 @media screen and (max-width: 768px)
 	.section
 		&__ttl
@@ -96,6 +131,13 @@
 		&__subttl
 			font-size: 22px
 			text-align: center
+		&_inner
+			padding: 40px 0
+	.feed,
+	.about-feed
+		.section__ttl
+			font-size: 25px
+
 	.offer__slider-item
 		.section__ttl
 			text-align: left

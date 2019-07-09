@@ -913,8 +913,8 @@
 						</div>
 						<div class="mb-3 ml-auto mr-auto mr-sm-0 ml-sm-0">Режим работы: пн-вс 9:00-22:00</div>
 						<div class="mb-xl-5 mb-3 ml-auto mr-auto mr-sm-0 ml-sm-0">Пишите сюда: mail@centurion.ru</div>
-						<a href="#popup_call" class="btn btn_white mb-3">Заказать звонок</a>
-						<a href="#popup_call" class="btn">Онлайн заявка</a>
+						<a href="#popup_call" data-fancybox class="btn btn_white mb-3">Заказать звонок</a>
+						<a href="#popup_request" data-fancybox class="btn">Онлайн заявка</a>
 					</div>
 				</div>
 				<div class="col-xl-3 col-sm-6 mb-4 mb-xl-3">
@@ -987,6 +987,9 @@
 			</div>
 		</div>
 	</footer>
+	<div class="preloader">
+		<div class="preloader__icon"></div>
+	</div>
 	<div id="popup_call" class="popup__container" style="display:none">
 		<div  class="popup__wrp popup_call__wrp">
 			<form action="[[~[[*id]]]]" method="post" class="popup">
