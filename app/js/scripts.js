@@ -13,105 +13,106 @@ $(function() {
       navText: ["<img src='img/slider__arrow_prev.png'>", "<img src='img/slider__arrow_next.png'>"]
 	});
 
-// jur slider
-  var sync1 = $('.jur__bot');
-  var sync2 = $('.jur__top');
+  // jur slider
+  $(function() {
+    var sync1 = $('.jur__bot');
+    var sync2 = $('.jur__top');
 
-  var thumbnailItemClass = '.owl-item';
+    var thumbnailItemClass = '.owl-item';
 
-  var slides = sync1.owlCarousel({
-    // video:true,
-    startPosition: 1,
-    items:1,
-    loop:true,
-    margin:10,
-    smartSpeed: 700,
-    animateIn: 'fadeIn',
-    animateOut: 'fadeOut',
-    autoplay:false,
-    autoplayTimeout:6000,
-    autoplayHoverPause:false,
-    nav: false,
-    dots: false,
-  }).on('changed.owl.carousel', syncPosition);
+    var slides = sync1.owlCarousel({
+      // video:true,
+      startPosition: 1,
+      items:1,
+      loop:true,
+      margin:10,
+      smartSpeed: 700,
+      animateIn: 'fadeIn',
+      animateOut: 'fadeOut',
+      autoplay:false,
+      autoplayTimeout:6000,
+      autoplayHoverPause:false,
+      nav: false,
+      dots: false,
+    }).on('changed.owl.carousel', syncPosition);
 
-  function syncPosition(el) {
-    $owl_slider = $(this).data('owl.carousel');
-    var loop = $owl_slider.options.loop;
+    function syncPosition(el) {
+      $owl_slider = $(this).data('owl.carousel');
+      var loop = $owl_slider.options.loop;
 
-    if(loop){
-      var count = el.item.count-1;
-      var current = Math.round(el.item.index - (el.item.count/2) - .5);
-      if(current < 0) {
-          current = count;
+      if(loop){
+        var count = el.item.count-1;
+        var current = Math.round(el.item.index - (el.item.count/2) - .5);
+        if(current < 0) {
+            current = count;
+        }
+        if(current > count) {
+            current = 0;
+        }
+      }else{
+        var current = el.item.index;
       }
-      if(current > count) {
-          current = 0;
-      }
-    }else{
-      var current = el.item.index;
-    }
 
-    var owl_thumbnail = sync2.data('owl.carousel');
-    var itemClass = "." + owl_thumbnail.options.itemClass;
+      var owl_thumbnail = sync2.data('owl.carousel');
+      var itemClass = "." + owl_thumbnail.options.itemClass;
 
 
-    var thumbnailCurrentItem = sync2
-    .find(itemClass)
-    .removeClass("synced")
-    .eq(current);
+      var thumbnailCurrentItem = sync2
+      .find(itemClass)
+      .removeClass("synced")
+      .eq(current);
 
-    thumbnailCurrentItem.addClass('synced');
-
-    if (!thumbnailCurrentItem.hasClass('active')) {
-      var duration = 300;
-      sync2.trigger('to.owl.carousel',[current, duration, true]);
-    }   
-  }
-  var thumbs = sync2.owlCarousel({
-    startPosition: 1,
-    items:4,
-    loop:false,
-    margin: 0,
-    autoplay:false,
-    nav: true,
-    navText: ["<img src='img/slider__arrow_prev.png'>", "<img src='img/slider__arrow_next.png'>"],
-    dots: false,
-    responsive : {
-      0   : {
-          items: 1,
-          autoHeight: true
-      },
-      380 : {
-          items: 1,
-      },
-      480 : {
-          items: 1,
-      },
-      768 : {
-          items: 3,
-      },
-      1040 : {
-          items: 5,
-          autoHeight: false
-      }
-    },
-    onInitialized: function (e) {
-      var thumbnailCurrentItem =  $(e.target).find(thumbnailItemClass).eq(this._current);
       thumbnailCurrentItem.addClass('synced');
-    },
-  })
-  .on('click', thumbnailItemClass, function(e) {
-      e.preventDefault();
-      var duration = 300;
-      var itemIndex =  $(e.target).parents(thumbnailItemClass).index();
-      sync1.trigger('to.owl.carousel',[itemIndex, duration, true]);
-  }).on("changed.owl.carousel", function (el) {
-    var number = el.item.index;
-    $owl_slider = sync1.data('owl.carousel');
-    $owl_slider.to(number, 100, true);
-  });
 
+      if (!thumbnailCurrentItem.hasClass('active')) {
+        var duration = 300;
+        sync2.trigger('to.owl.carousel',[current, duration, true]);
+      }   
+    }
+    var thumbs = sync2.owlCarousel({
+      startPosition: 1,
+      // items:4,
+      loop:false,
+      margin: 0,
+      autoplay:false,
+      nav: true,
+      navText: ["<img src='img/slider__arrow_prev.png'>", "<img src='img/slider__arrow_next.png'>"],
+      dots: false,
+      responsive : {
+        0   : {
+            items: 1,
+            autoHeight: true
+        },
+        380 : {
+            items: 1,
+        },
+        480 : {
+            items: 1,
+        },
+        768 : {
+            items: 3,
+        },
+        1040 : {
+            items: 5,
+            autoHeight: false
+        }
+      },
+      onInitialized: function (e) {
+        var thumbnailCurrentItem =  $(e.target).find(thumbnailItemClass).eq(this._current);
+        thumbnailCurrentItem.addClass('synced');
+      },
+    })
+    .on('click', thumbnailItemClass, function(e) {
+        e.preventDefault();
+        var duration = 300;
+        var itemIndex =  $(e.target).parents(thumbnailItemClass).index();
+        sync1.trigger('to.owl.carousel',[itemIndex, duration, true]);
+    }).on("changed.owl.carousel", function (el) {
+      var number = el.item.index;
+      $owl_slider = sync1.data('owl.carousel');
+      $owl_slider.to(number, 100, true);
+    });
+  });
   //dir slider
   $('.dir__bot').owlCarousel({
       nav: true,
@@ -191,95 +192,97 @@ $(function() {
         }
       }
    });
-    // rev slider
-  var sync3 = $('.rev__top');
-  var sync4 = $('.rev__bot');
+  // rev slider
+  $(function() {
+    var sync3 = $('.rev__top');
+    var sync4 = $('.rev__bot');
 
-  var thumbnailItemClass = '.owl-item';
+    var thumbnailItemClass = '.owl-item';
 
-  var slides = sync3.owlCarousel({
-    // video:true,
-    startPosition: 1,
-    items:1,
-    loop:true,
-    margin:0,
-    smartSpeed: 700,
-    animateIn: 'fadeIn',
-    animateOut: 'fadeOut',
-    autoplay:false,
-    autoplayTimeout:6000,
-    autoplayHoverPause:false,
-    navText: ["<img src='img/slider__arrow_prev.png'>", "<img src='img/slider__arrow_next.png'>"],
-    dots: false,
-    mouseDrag: false,
-    responsive : {
-      0   : {
-          nav: true,
-          mouseDrag: true,
-          autoHeight:true
+    var slides = sync3.owlCarousel({
+      // video:true,
+      startPosition: 1,
+      items:1,
+      loop:true,
+      margin:0,
+      smartSpeed: 700,
+      animateIn: 'fadeIn',
+      animateOut: 'fadeOut',
+      autoplay:false,
+      autoplayTimeout:6000,
+      autoplayHoverPause:false,
+      navText: ["<img src='img/slider__arrow_prev.png'>", "<img src='img/slider__arrow_next.png'>"],
+      dots: false,
+      mouseDrag: false,
+      responsive : {
+        0   : {
+            nav: true,
+            mouseDrag: true,
+            autoHeight:true
+        },
+        1200 : {
+            nav: false,
+        }
       },
-      1200 : {
-          nav: false,
+    }).on('changed.owl.carousel', syncPosition);
+
+    function syncPosition(el) {
+      $owl_slider = $(this).data('owl.carousel');
+      var loop = $owl_slider.options.loop;
+
+      if(loop){
+        var count = el.item.count-1;
+        var current = Math.round(el.item.index - (el.item.count/2) - .5);
+        if(current < 0) {
+            current = count;
+        }
+        if(current > count) {
+            current = 0;
+        }
+      }else{
+        var current = el.item.index;
       }
-    },
-  }).on('changed.owl.carousel', syncPosition);
 
-  function syncPosition(el) {
-    $owl_slider = $(this).data('owl.carousel');
-    var loop = $owl_slider.options.loop;
-
-    if(loop){
-      var count = el.item.count-1;
-      var current = Math.round(el.item.index - (el.item.count/2) - .5);
-      if(current < 0) {
-          current = count;
-      }
-      if(current > count) {
-          current = 0;
-      }
-    }else{
-      var current = el.item.index;
-    }
-
-    var owl_thumbnail = sync4.data('owl.carousel');
-    var itemClass = "." + owl_thumbnail.options.itemClass;
+      var owl_thumbnail = sync4.data('owl.carousel');
+      var itemClass = "." + owl_thumbnail.options.itemClass;
 
 
-    var thumbnailCurrentItem = sync4
-    .find(itemClass)
-    .removeClass("synced")
-    .eq(current);
+      var thumbnailCurrentItem = sync4
+      .find(itemClass)
+      .removeClass("synced")
+      .eq(current);
 
-    thumbnailCurrentItem.addClass('synced');
-
-    if (!thumbnailCurrentItem.hasClass('active')) {
-      var duration = 300;
-      sync4.trigger('to.owl.carousel',[current, duration, true]);
-    }   
-  }
-  var thumbs = sync4.owlCarousel({
-    startPosition: 1,
-    items:2,
-    loop:false,
-    margin: 0,
-    autoplay:false,
-    nav: true,
-    navText: ["<img src='img/slider__arrow_prev.png'>", "<img src='img/slider__arrow_next.png'>"],
-    dots: false,
-    onInitialized: function (e) {
-      var thumbnailCurrentItem =  $(e.target).find(thumbnailItemClass).eq(this._current);
       thumbnailCurrentItem.addClass('synced');
-    },
-  })
-  .on('click', thumbnailItemClass, function(e) {
-      e.preventDefault();
-      var duration = 300;
-      var itemIndex =  $(e.target).parents(thumbnailItemClass).index();
-      sync3.trigger('to.owl.carousel',[itemIndex, duration, true]);
-  }).on("changed.owl.carousel", function (el) {
-    var number = el.item.index;
-    $owl_slider = sync3.data('owl.carousel');
-    $owl_slider.to(number, 100, true);
+
+      if (!thumbnailCurrentItem.hasClass('active')) {
+        var duration = 300;
+        sync4.trigger('to.owl.carousel',[current, duration, true]);
+      }   
+    }
+    var thumbs = sync4.owlCarousel({
+      startPosition: 1,
+      items:2,
+      loop:false,
+      margin: 0,
+      autoplay:false,
+      nav: true,
+      navText: ["<img src='img/slider__arrow_prev.png'>", "<img src='img/slider__arrow_next.png'>"],
+      dots: false,
+      onInitialized: function (e) {
+        var thumbnailCurrentItem =  $(e.target).find(thumbnailItemClass).eq(this._current);
+        thumbnailCurrentItem.addClass('synced');
+      },
+    })
+    .on('click', thumbnailItemClass, function(e) {
+        e.preventDefault();
+        var duration = 300;
+        var itemIndex =  $(e.target).parents(thumbnailItemClass).index();
+        sync3.trigger('to.owl.carousel',[itemIndex, duration, true]);
+    }).on("changed.owl.carousel", function (el) {
+      var number = el.item.index;
+      $owl_slider = sync3.data('owl.carousel');
+      $owl_slider.to(number, 100, true);
+    });
   });
 	// tabs 
   $(document).ready(function () {
